@@ -280,7 +280,7 @@ export default function App() {
             <div>
               <h1 className="text-2xl font-bold text-blue-400">🎧 Виртуальный аудиометр</h1>
               <p className="text-sm text-gray-400 mt-1">
-                RL-агент (PPO) с 5 действиями: +5, -5, +1, -1, СТОП
+                RL-агент (PPO) · 9 действий: ±20, ±10, ±5, ±1, СТОП
               </p>
             </div>
             <div className="flex items-center gap-3">
@@ -735,7 +735,7 @@ export default function App() {
 
         {/* Footer */}
         <footer className="mt-12 pb-6 text-center text-xs text-gray-600">
-          Виртуальный аудиометр — Магистерская работа | PPO + Gymnasium + Stable Baselines3
+          Виртуальный аудиометр | PPO + Gymnasium + Stable Baselines3
         </footer>
       </div>
   );
