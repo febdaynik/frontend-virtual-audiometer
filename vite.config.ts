@@ -8,21 +8,20 @@ import dotenv from 'dotenv';
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const backendUrl = process.env.VITE_API_URL;
+const baseUrl = process.env.VITE_BASE_URL;
 
-console.log(backendUrl, process.env.NODE_ENV);
+console.log(baseUrl, backendUrl, process.env.NODE_ENV);
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/frontend-virtual-audiometer/',
+  // base: baseUrl,
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
   server: {
-    host: '0.0.0.0',
-    port: 4173,
     proxy: {
       '/api': {
         target: backendUrl,
