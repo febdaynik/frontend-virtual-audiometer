@@ -1,5 +1,3 @@
-const API_BASE = "http://localhost:8000";
-
 export interface ToneResponse {
   frequency: number;
   db_level: number;
@@ -54,25 +52,25 @@ export interface ModelInfo {
 }
 
 export async function checkHealth(): Promise<{ status: string; model_loaded: boolean }> {
-  const res = await fetch(`${API_BASE}/api/health`);
+  const res = await fetch(`/api/health`);
   if (!res.ok) throw new Error("Server unavailable");
   return res.json();
 }
 
 export async function getModelInfo(): Promise<ModelInfo> {
-  const res = await fetch(`${API_BASE}/api/model_info`);
+  const res = await fetch(`/api/model_info`);
   if (!res.ok) throw new Error("Failed to get model info");
   return res.json();
 }
 
 export async function runVirtualTest(): Promise<VirtualTestResult> {
-  const res = await fetch(`${API_BASE}/api/virtual_test`, { method: "POST" });
+  const res = await fetch(`/api/virtual_test`, { method: "POST" });
   if (!res.ok) throw new Error("Virtual test failed");
   return res.json();
 }
 
 export async function startRealTest(sessionId: string): Promise<ToneResponse> {
-  const res = await fetch(`${API_BASE}/api/start_test`, {
+  const res = await fetch(`/api/start_test`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ session_id: sessionId }),
@@ -82,7 +80,7 @@ export async function startRealTest(sessionId: string): Promise<ToneResponse> {
 }
 
 export async function sendStep(sessionId: string, heard: boolean): Promise<ToneResponse> {
-  const res = await fetch(`${API_BASE}/api/step`, {
+  const res = await fetch(`/api/step`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ session_id: sessionId, heard }),
@@ -92,7 +90,7 @@ export async function sendStep(sessionId: string, heard: boolean): Promise<ToneR
 }
 
 export async function getResults(sessionId: string) {
-  const res = await fetch(`${API_BASE}/api/results/${sessionId}`);
+  const res = await fetch(`/api/results/${sessionId}`);
   if (!res.ok) throw new Error("Failed to get results");
   return res.json();
 }

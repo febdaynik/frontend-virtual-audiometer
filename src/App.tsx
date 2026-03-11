@@ -336,7 +336,7 @@ export default function App() {
                   <h2 className="text-lg font-semibold mb-3">Тест виртуального пациента</h2>
                   <p className="text-gray-400 text-sm mb-4">
                     ИНС автоматически проведёт аудиометрию виртуального пациента со случайным профилем слуха.
-                    Агент выбирает действия (+5, -5, +1, -1, СТОП) чтобы найти порог на каждой из 7 частот.
+                    Агент выбирает действия (+20, +10, +5, +1, -1, -5, -10, -20, СТОП) чтобы найти порог на каждой из 7 частот.
                   </p>
                   <button
                       onClick={handleVirtualTest}
@@ -650,33 +650,6 @@ export default function App() {
                                 <span className="text-gray-300">{f}</span>
                               </div>
                           ))}
-                        </div>
-                      </div>
-
-                      <div className="bg-gray-900 rounded-xl p-6 border border-gray-800">
-                        <h3 className="text-sm font-semibold text-gray-400 mb-3">Стратегия агента</h3>
-                        <div className="space-y-3 text-sm text-gray-300">
-                          <div className="flex gap-3">
-                            <span className="text-2xl">1️⃣</span>
-                            <div>
-                              <p className="font-semibold">Грубый поиск (±5 дБ)</p>
-                              <p className="text-gray-500">Начинает с 60 дБ и крупными шагами находит зону порога</p>
-                            </div>
-                          </div>
-                          <div className="flex gap-3">
-                            <span className="text-2xl">2️⃣</span>
-                            <div>
-                              <p className="font-semibold">Точный поиск (±1 дБ)</p>
-                              <p className="text-gray-500">Когда gap ≤ 6, переключается на мелкие шаги</p>
-                            </div>
-                          </div>
-                          <div className="flex gap-3">
-                            <span className="text-2xl">3️⃣</span>
-                            <div>
-                              <p className="font-semibold">СТОП</p>
-                              <p className="text-gray-500">Когда gap = 1 (min_heard - max_not_heard = 1), порог найден точно</p>
-                            </div>
-                          </div>
                         </div>
                       </div>
 
