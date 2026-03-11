@@ -15,18 +15,10 @@ console.log(baseUrl, backendUrl, process.env.NODE_ENV);
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  // base: baseUrl,
+  base: baseUrl,
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-    },
-  },
-  server: {
-    proxy: {
-      '/api': {
-        target: backendUrl,
-        changeOrigin: true,
-      },
     },
   },
 });
