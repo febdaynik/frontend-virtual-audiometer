@@ -261,7 +261,7 @@ export default function App() {
           <div className="max-w-6xl mx-auto px-4 flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-blue-400">🎧 Виртуальный аудиометр</h1>
-              <p className="text-sm text-gray-400 mt-1">RL-агент (PPO) · 9 действий · Оба уха</p>
+              <p className="text-sm text-gray-400 mt-1">RL-агент (PPO) · 9 действий</p>
             </div>
             <div className="flex items-center gap-3">
             <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium ${
@@ -276,7 +276,7 @@ export default function App() {
               {connected && (
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                       modelLoaded ? "bg-blue-900 text-blue-300" : "bg-yellow-900 text-yellow-300"
-                  }`}>{modelLoaded ? "Модель ✓" : "Нет модели"}</span>
+                  }`}>{modelLoaded ? "Модель подключена" : "Нет модели"}</span>
               )}
             </div>
           </div>
@@ -528,7 +528,7 @@ export default function App() {
                     <div className="space-y-6">
                       <div className="bg-green-900/30 border border-green-700 rounded-xl p-6 text-center">
                         <h2 className="text-xl font-bold text-green-400 mb-2">✅ Тест завершён!</h2>
-                        <p className="text-gray-300">Оба уха проверены · Всего шагов: {currentTone.steps_taken}</p>
+                        <p className="text-gray-300">Всего шагов: {currentTone.steps_taken}</p>
                       </div>
 
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
